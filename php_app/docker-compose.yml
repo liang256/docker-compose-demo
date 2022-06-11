@@ -1,0 +1,21 @@
+version : '3'
+services:
+  example-app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: example-app
+    restart: always
+    network_mode: bridge
+    volumes:
+    - ./:/var/www
+    - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    - ./docker/nginx/fastcgi.conf:/etc/nginx/fastcgi.conf
+    - ./docker/nginx/proxy.conf:/etc/nginx/proxy.conf
+    - ./docker/nginx/ssl:/etc/nginx/ssl
+    - ./docker/nginx/conf/mime.types:/etc/conf/mime.types
+    - ./docker/php/php.ini:/usr/local/etc/php/php.ini:ro
+    - ./docker/php/www.conf:/usr/local/etc/php-fpm.d/www.conf
+    ports: 
+    - 4444:80
+
