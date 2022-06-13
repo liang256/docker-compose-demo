@@ -1,5 +1,5 @@
 # docker-compose-demo
-Demo how to use docker compose
+A 5 minutes tutorial shows how to use docker compose
 
 ## Why Docker Compose
 
